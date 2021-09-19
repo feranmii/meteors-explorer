@@ -32,13 +32,14 @@ final class MeteorsViewController: UIViewController {
     }
     
     private func setupViews() {
+        tableView.accessibilityIdentifier = "meteors-tableView"
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(MeteorTableViewCell.self, forCellReuseIdentifier: MeteorTableViewCell.identifier)
         tableView.refreshControl = refreshControl
         
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
-        
+        segmentedControl.accessibilityIdentifier = "meteors-sort-control"
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
         segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
         refreshControl.addTarget(self, action: #selector(fetchData), for: .valueChanged)

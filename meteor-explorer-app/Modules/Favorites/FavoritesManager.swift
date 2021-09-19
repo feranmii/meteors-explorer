@@ -1,5 +1,5 @@
 //
-//  SessionManager.swift
+//  FavoritesManager.swift
 //  meteor-explorer-app
 //
 //  Created by Feranmi on 17/09/2021.
@@ -11,7 +11,6 @@ import Foundation
  Used for saving and retreiving local data using the UserDefaults
  */
 struct FavoritesManager {
-    // An array of meteor objects used to save favourited meteors
     static var favourites: MeteorsListModel {
         get {
             if let data = UserDefaults.standard.data(forKey: "favourites") {
@@ -50,7 +49,7 @@ struct FavoritesManager {
 
      # Example #
      ```
-     SessionManager.favouriteCheck(id: "ae920394")
+     FavoritesManager.favouriteCheck(id: "ae920394")
      ```
 
      */
@@ -63,12 +62,12 @@ struct FavoritesManager {
     /**
      Add or remove a meteor from favourites
 
-     - parameter id: id of the meteor.
+     - parameter model: model of the meteor.
      - parameter result: a callback which returns the favourite state of the meteor
 
      # Example #
      ```
-     SessionManager.toggleFavourite(id: "ae920394", isFavourite: {result in
+     FavoritesManager.toggleFavourite(id: "ae920394") {result in
 
      })
      ```

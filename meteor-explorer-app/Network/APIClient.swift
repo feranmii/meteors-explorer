@@ -31,7 +31,6 @@ final class APIClient {
             }
             
             if 200 ..< 300 ~= httpResponse.statusCode {
-                print(String(data: responseData, encoding: .utf8) ?? "")
                 if let result = try? JSONDecoder().decode(T.self, from: responseData) {
                     completion(.success(result))
                 } else {

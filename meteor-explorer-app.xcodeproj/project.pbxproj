@@ -145,14 +145,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		73FB039326F48E0500347383 /* LocalData */ = {
-			isa = PBXGroup;
-			children = (
-				73FB039526F48E7E00347383 /* FavoritesManager.swift */,
-			);
-			path = LocalData;
-			sourceTree = "<group>";
-		};
 		73FB039426F48E1300347383 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +168,7 @@
 		73FB039A26F4A64A00347383 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				73FB039526F48E7E00347383 /* FavoritesManager.swift */,
 				73FB039D26F4A67300347383 /* FavoritesViewController.swift */,
 				73FB03AD26F5524100347383 /* FavoritesViewModel.swift */,
 			);
@@ -225,7 +218,6 @@
 			children = (
 				73FB03B426F6FFC100347383 /* Extensions */,
 				73FB039426F48E1300347383 /* Modules */,
-				73FB039326F48E0500347383 /* LocalData */,
 				73FB039126F48DF700347383 /* Models */,
 				73FB039026F48DF200347383 /* Utility */,
 				73FB038F26F48DEA00347383 /* Network */,

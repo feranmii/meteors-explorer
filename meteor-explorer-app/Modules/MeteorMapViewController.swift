@@ -11,6 +11,7 @@ import UIKit
 final class MeteorMapViewController: UIViewController {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var favoriteButton: UIBarButtonItem!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet var navItem: UINavigationItem!
     
     var meteor: MeteorModel?
@@ -25,8 +26,14 @@ final class MeteorMapViewController: UIViewController {
     private func setupView() {
         overrideUserInterfaceStyle = .dark
         navItem.title = meteor?.name ?? ""
+        favoriteButton.accessibilityIdentifier = "favorite-button"
         favoriteButton.target = self
         favoriteButton.action = #selector(onFavouritePressed(_:))
+        
+        backButton.accessibilityIdentifier = "back-button"
+        backButton.target = self
+        backButton.action = #selector(onBackPressed(_:))
+        
         let isFavourite = FavoritesManager.favouriteCheck(id: meteor?.id ?? "")
         toggleFavouriteButton(isFavourite)
         setupMap()
@@ -44,11 +51,12 @@ final class MeteorMapViewController: UIViewController {
         annotation.subtitle = "(\(date), \(mass) kg)"
         annotation.coordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(model.geolocation?.coordinates[1] ?? 0),
                                                        longitude: CLLocationDegrees(model.geolocation?.coordinates[0] ?? 0))
+        
         mapView.addAnnotation(annotation)
         mapView.setCenter(annotation.coordinate, animated: false)
     }
 
-    @IBAction func onBackPressed(_ sender: UIBarButtonItem) {
+    @objc func onBackPressed(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
     
