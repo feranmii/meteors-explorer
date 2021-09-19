@@ -20,6 +20,7 @@ final class MeteorTableViewCell: UITableViewCell {
 
     func commonInit() {
         selectionStyle = .none
+        accessoryType = .disclosureIndicator
         backgroundColor = .background
         textLabel?.textColor = .primaryText
         textLabel?.font = .systemFont(ofSize: 17)

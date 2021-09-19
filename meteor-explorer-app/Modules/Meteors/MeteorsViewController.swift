@@ -56,6 +56,7 @@ final class MeteorsViewController: UIViewController {
     }
   
     @objc func fetchData() {
+        toggleUserInteraction(false)
         viewModel.fetchMeteors(onSuccess: {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
@@ -64,6 +65,7 @@ final class MeteorsViewController: UIViewController {
                 if self.loadingIndicator.isAnimating {
                     self.loadingIndicator.stopAnimating()
                 }
+                self.toggleUserInteraction(true)
             }
         }, onFailure: { error in
             DispatchQueue.main.async { [weak self] in
@@ -85,6 +87,11 @@ final class MeteorsViewController: UIViewController {
             viewModel.endpoint = .getMeteorsBySize()
             fetchData()
         }
+    }
+    
+    func toggleUserInteraction(_ state: Bool) {
+        segmentedControl.isUserInteractionEnabled = state
+        tableView.isUserInteractionEnabled = state
     }
 }
 
