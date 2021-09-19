@@ -32,6 +32,7 @@
 		73FCA87426F48A7600A7A70B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73FCA87326F48A7600A7A70B /* Assets.xcassets */; };
 		73FCA87726F48A7600A7A70B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73FCA87526F48A7600A7A70B /* LaunchScreen.storyboard */; };
 		73FCA88D26F48A7600A7A70B /* meteor_explorer_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FCA88C26F48A7600A7A70B /* meteor_explorer_appUITests.swift */; };
+		73FCA89D26F7D57800A7A70B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 73FCA89C26F7D57800A7A70B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		73FCA88826F48A7600A7A70B /* meteor-explorer-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "meteor-explorer-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73FCA88C26F48A7600A7A70B /* meteor_explorer_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meteor_explorer_appUITests.swift; sourceTree = "<group>"; };
 		73FCA88E26F48A7600A7A70B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73FCA89C26F7D57800A7A70B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		73FCA85E26F48A7100A7A70B = {
 			isa = PBXGroup;
 			children = (
+				73FCA89C26F7D57800A7A70B /* README.md */,
 				73FCA86926F48A7100A7A70B /* meteor-explorer-app */,
 				73FCA88026F48A7600A7A70B /* meteor-explorer-appTests */,
 				73FCA88B26F48A7600A7A70B /* meteor-explorer-appUITests */,
@@ -356,6 +359,7 @@
 			files = (
 				73FCA87726F48A7600A7A70B /* LaunchScreen.storyboard in Resources */,
 				73FCA87426F48A7600A7A70B /* Assets.xcassets in Resources */,
+				73FCA89D26F7D57800A7A70B /* README.md in Resources */,
 				73FCA87226F48A7100A7A70B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
