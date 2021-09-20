@@ -16,6 +16,7 @@ final class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        fetchData()
     }
 
     private func setupViews() {
@@ -27,10 +28,19 @@ final class FavoritesViewController: UIViewController {
     }
 
     @objc private func onMeteorFavorited() {
-        viewModel.getFavorites()
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
+        fetchData()
+    }
+
+    private func fetchData() {
+        viewModel.getFavorites(onSuccess: {
+            DispatchQueue.main.async { [weak self] in
+                self?.tableView.reloadData()
+            }
+        }, onFailure: { info in
+            DispatchQueue.main.async { [weak self] in
+                self?.showAlert(title: "Error", message: info)
+            }
+        })
     }
 }
 

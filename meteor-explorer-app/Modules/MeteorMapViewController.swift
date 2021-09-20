@@ -16,7 +16,8 @@ final class MeteorMapViewController: UIViewController {
     
     var meteor: MeteorModel?
     let notificationCenter = NotificationCenter.default
-
+    let favoritesManager = FavoritesManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -34,7 +35,7 @@ final class MeteorMapViewController: UIViewController {
         backButton.target = self
         backButton.action = #selector(onBackPressed(_:))
         
-        let isFavourite = FavoritesManager.favouriteCheck(id: meteor?.id ?? "")
+        let isFavourite = favoritesManager.favouriteCheck(id: meteor?.id ?? "")
         toggleFavouriteButton(isFavourite)
         setupMap()
     }
@@ -61,7 +62,7 @@ final class MeteorMapViewController: UIViewController {
     }
     
     @objc func onFavouritePressed(_ sender: UIBarButtonItem) {
-        FavoritesManager.toggleFavorites(meteor) { result in
+        favoritesManager.toggleFavorites(meteor) { result in
             toggleFavouriteButton(result)
         }
         

@@ -70,7 +70,7 @@ final class MeteorsViewController: UIViewController {
         }, onFailure: { error in
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else { return }
-                self.showAlert(title: "Error", message: error) {
+                self.showAlert(title: "Error", message: error, buttonMessage: "Retry") {
                     self.fetchData()
                 }
             }

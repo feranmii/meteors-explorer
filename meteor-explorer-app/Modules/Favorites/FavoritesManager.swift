@@ -8,10 +8,10 @@
 import Foundation
 
 /**
- Used for saving and retreiving local data using the UserDefaults
+ Used for saving and retreiving favorites using the UserDefaults
  */
-struct FavoritesManager {
-    static var favourites: MeteorsListModel {
+final class FavoritesManager {
+    public var favourites: MeteorsListModel {
         get {
             if let data = UserDefaults.standard.data(forKey: "favourites") {
                 do {
@@ -53,7 +53,7 @@ struct FavoritesManager {
      ```
 
      */
-    static func favouriteCheck(id: String) -> Bool {
+    public func favouriteCheck(id: String) -> Bool {
         return favourites.contains(where: {
             $0.id == id
         })
@@ -73,11 +73,11 @@ struct FavoritesManager {
      ```
 
      */
-    static func toggleFavorites(_ model: MeteorModel?, _ result: (Bool) -> Void) {
+    public func toggleFavorites(_ model: MeteorModel?, _ result: (Bool) -> Void) {
         guard let meteor = model else {
             return
         }
-        if FavoritesManager.favouriteCheck(id: meteor.id) {
+        if favouriteCheck(id: meteor.id) {
             favourites.removeAll {
                 $0.id == meteor.id
             }
